@@ -135,3 +135,4 @@ speedtest.db
 .idea/
 speedtest-backend
 dist/
+*.7z
