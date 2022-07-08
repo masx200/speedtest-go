@@ -11,7 +11,7 @@ server_lng=1
 ipinfo_api_key=""
 
 # assets directory path, defaults to `assets` in the same directory
-assets_path=""
+assets_path="assets"
 
 # password for logging into statistics page
 statistics_password="PASSWORD"
@@ -20,7 +20,7 @@ redact_ip_addresses=false
 
 # database type for statistics data, currently supports: none, memory, bolt, mysql, postgresql
 # if none is specified, no telemetry/stats will be recorded, and no result PNG will be generated
-database_type="bolt"
+database_type="none"
 database_hostname=""
 database_name=""
 database_username=""
