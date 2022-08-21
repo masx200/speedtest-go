@@ -2,6 +2,8 @@
 
 # LibreSpeed
 
+thanks to https://github.com/librespeed/speedtest-go
+
 No Flash, No Java, No WebSocket, No Bullshit.
 
 This is a very lightweight speed test implemented in JavaScript, using XMLHttpRequest and Web Workers.
