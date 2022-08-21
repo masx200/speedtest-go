@@ -1,4 +1,4 @@
-module github.com/librespeed/speedtest
+module github.com/masx200/speedtest-go
 
 go 1.16
 
