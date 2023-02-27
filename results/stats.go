@@ -9,9 +9,9 @@ import (
 
 	"github.com/gorilla/securecookie"
 	"github.com/gorilla/sessions"
-	"github.com/librespeed/speedtest/config"
-	"github.com/librespeed/speedtest/database"
-	"github.com/librespeed/speedtest/database/schema"
+	"github.com/masx200/speedtest-go/config"
+	"github.com/masx200/speedtest-go/database"
+	"github.com/masx200/speedtest-go/database/schema"
 )
 
 type StatsData struct {

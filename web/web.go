@@ -21,8 +21,8 @@ import (
 	"github.com/pires/go-proxyproto"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/librespeed/speedtest/config"
-	"github.com/librespeed/speedtest/results"
+	"github.com/masx200/speedtest-go/config"
+	"github.com/masx200/speedtest-go/results"
 )
 
 const (
@@ -95,9 +95,7 @@ func ListenAndServe(conf *config.Config) error {
 
 	go listenProxyProtocol(conf, r)
 
-
 	var s error
-
 
 	addr := net.JoinHostPort(conf.BindAddress, conf.Port)
 	log.Infof("Starting backend server on %s", addr)

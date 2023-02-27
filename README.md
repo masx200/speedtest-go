@@ -1,38 +1,42 @@
-![LibreSpeed Logo](https://github.com/librespeed/speedtest-go/blob/master/.logo/logo3.png?raw=true)
+![LibreSpeed Logo](https://github.com/masx200/speedtest-go-go/blob/master/.logo/logo3.png?raw=true)
 
 # LibreSpeed
 
-thanks to https://github.com/librespeed/speedtest-go
+thanks to https://github.com/masx200/speedtest-go-go
 
 No Flash, No Java, No WebSocket, No Bullshit.
 
 This is a very lightweight speed test implemented in JavaScript, using XMLHttpRequest and Web Workers.
 
 ## Try it
+
 [Take a speed test](https://speedtest.zzz.cat)
 
 ## Compatibility
+
 All modern browsers are supported: IE11, latest Edge, latest Chrome, latest Firefox, latest Safari.
 Works with mobile versions too.
 
 ## Features
-* Download
-* Upload
-* Ping
-* Jitter
-* IP Address, ISP, distance from server (optional)
-* Telemetry (optional)
-* Results sharing (optional)
-* Multiple Points of Test (optional)
-* Compatible with PHP frontend predefined endpoints (with `.php` suffixes)
-* Supports [Proxy Protocol](https://www.haproxy.org/download/2.3/doc/proxy-protocol.txt) (without TLV support yet)
+
+-   Download
+-   Upload
+-   Ping
+-   Jitter
+-   IP Address, ISP, distance from server (optional)
+-   Telemetry (optional)
+-   Results sharing (optional)
+-   Multiple Points of Test (optional)
+-   Compatible with PHP frontend predefined endpoints (with `.php` suffixes)
+-   Supports [Proxy Protocol](https://www.haproxy.org/download/2.3/doc/proxy-protocol.txt) (without TLV support yet)
 
 ![Screencast](https://speedtest.zzz.cat/speedtest.webp)
 
 ## Server requirements
-* Any [Go supported platforms](https://github.com/golang/go/wiki/MinimumRequirements)
-* BoltDB, PostgreSQL or MySQL database to store test results (optional)
-* A fast! Internet connection
+
+-   Any [Go supported platforms](https://github.com/golang/go/wiki/MinimumRequirements)
+-   BoltDB, PostgreSQL or MySQL database to store test results (optional)
+-   A fast! Internet connection
 
 ## Installation
 
@@ -41,20 +45,21 @@ manually, you can install newer version of Go into your `GOPATH`:
 
 0. Install Go 1.17
 
-   ```
-   $ go get golang.org/dl/go1.17.1
-   # Assuming your GOPATH is default (~/go), Go 1.17.1 will be installed in ~/go/bin
-   $ ~/go/bin/go1.17.1 version
-   go version go1.17.1 linux/amd64
-   ```
+    ```
+    $ go get golang.org/dl/go1.17.1
+    # Assuming your GOPATH is default (~/go), Go 1.17.1 will be installed in ~/go/bin
+    $ ~/go/bin/go1.17.1 version
+    go version go1.17.1 linux/amd64
+    ```
 
 1. Clone this repository:
 
     ```
-    $ git clone github.com/librespeed/speedtest-go
+    $ git clone github.com/masx200/speedtest-go-go
     ```
 
 2. Build
+
     ```
     # Change current working directory to the repository
     $ cd speedtest-go
@@ -65,6 +70,7 @@ manually, you can install newer version of Go into your `GOPATH`:
 3. Copy the `assets` directory, `settings.toml` file along with the compiled `speedtest` binary into a single directory
 
 4. If you have telemetry enabled,
+
     - For PostgreSQL/MySQL, create database and import the corresponding `.sql` file under `database/{postgresql,mysql}`
 
         ```
@@ -79,9 +85,10 @@ manually, you can install newer version of Go into your `GOPATH`:
         ```
 
 5. Put `assets` folder under the same directory as your compiled binary.
+
     - Make sure the font files and JavaScripts are in the `assets` directory
     - You can have multiple HTML pages under `assets` directory. They can be access directly under the server root
-    (e.g. `/example-singleServer-full.html`)
+      (e.g. `/example-singleServer-full.html`)
     - It's possible to have a default page mapped to `/`, simply put a file named `index.html` under `assets`
 
 6. Change `settings.toml` according to your environment:
@@ -98,7 +105,7 @@ manually, you can install newer version of Go into your `GOPATH`:
     server_lng=0
     # ipinfo.io API key, if applicable
     ipinfo_api_key=""
-   
+
     # assets directory path, defaults to `assets` in the same directory
     # if the path cannot be found, embedded default assets will be used
     assets_path="./assets"
@@ -130,16 +137,17 @@ manually, you can install newer version of Go into your `GOPATH`:
 
 ## Differences between Go and PHP implementation and caveats
 
-- Since there is no CGo-free SQLite implementation available, I've opted to use [BoltDB](https://github.com/etcd-io/bbolt)
-  instead, as an embedded database alternative to SQLite
-- Test IDs are generated ULID, there is no option to change them to plain ID
-- You can use the same HTML template from the PHP implementation
-- Server location can be defined in settings
-- There might be a slight delay on program start if your Internet connection is slow. That's because the program will
-attempt to fetch your current network's ISP info for distance calculation between your network and the speed test client's.
-This action will only be taken once, and cached for later use.
+-   Since there is no CGo-free SQLite implementation available, I've opted to use [BoltDB](https://github.com/etcd-io/bbolt)
+    instead, as an embedded database alternative to SQLite
+-   Test IDs are generated ULID, there is no option to change them to plain ID
+-   You can use the same HTML template from the PHP implementation
+-   Server location can be defined in settings
+-   There might be a slight delay on program start if your Internet connection is slow. That's because the program will
+    attempt to fetch your current network's ISP info for distance calculation between your network and the speed test client's.
+    This action will only be taken once, and cached for later use.
 
 ## License
+
 Copyright (C) 2016-2020 Federico Dossena
 Copyright (C) 2020 Maddie Zhan
 
@@ -150,8 +158,8 @@ the Free Software Foundation, either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/lgpl>.
+along with this program. If not, see <https://www.gnu.org/licenses/lgpl>.
