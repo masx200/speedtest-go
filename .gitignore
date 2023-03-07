@@ -136,3 +136,5 @@ speedtest.db
 speedtest-backend
 dist/
 *.7z
+speedtest
+*.zip
