@@ -27,5 +27,8 @@ jobs:
     - name: Build windows amd64
       run:  GOOS=windows GOARCH=amd64 CGO_ENABLED=0  go build -v -ldflags="-w -s" -o speedtest main.go 
       
-    - name: Build linux mips softfloat
+    - name: Build linux mipsle softfloat
       run: CC=mips-linux-gcc GOOS=linux GOARCH=mipsle CGO_ENABLED=0 GOMIPS=softfloat go build -v -ldflags="-w -s" -o speedtest main.go  
+
+    - name: Build linux aarch64 
+      run: GOOS=linux GOARCH=aarch64 CGO_ENABLED=0 GOMIPS=softfloat go build -v -ldflags="-w -s" -o speedtest main.go  
