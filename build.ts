@@ -10,25 +10,25 @@ if (import.meta.main) {
       "./temp/speedtest-go-main.zip",
       "speedtest-go-main/speedtest.exe",
       "./dist/windows-amd64/speedtest.exe",
-      "./dist/windows-amd64/speedtest.zip",
+      "./dist/windows-amd64-speedtest.zip",
     ),
     addFileToZipFileOutput(
       "./temp/speedtest-go-main.zip",
       "speedtest-go-main/speedtest",
       "./dist/linux-amd64/speedtest",
-      "./dist/linux-amd64/speedtest.zip",
+      "./dist/linux-amd64-speedtest.zip",
     ),
     addFileToZipFileOutput(
       "./temp/speedtest-go-main.zip",
       "speedtest-go-main/speedtest",
       "./dist/linux-arm64/speedtest",
-      "./dist/linux-arm64/speedtest.zip",
+      "./dist/linux-arm64-speedtest.zip",
     ),
     addFileToZipFileOutput(
       "./temp/speedtest-go-main.zip",
       "speedtest-go-main/speedtest",
       "./dist/linux-mipsle/speedtest",
-      "./dist/linux-mipsle/speedtest.zip",
+      "./dist/linux-mipsle-speedtest.zip",
     ),
   ]);
 }
