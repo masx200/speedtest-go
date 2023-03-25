@@ -44,3 +44,13 @@ jobs:
       run: wget --output-document=./temp/speedtest-go-main.zip https://github.com/masx200/speedtest-go/archive/refs/heads/main.zip
     - name: deno bundle zip buiild
       run: deno run -A ./build.ts
+      
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+          files: |
+            dist/linux-mipsle/speedtest.zip
+            dist/linux-arm64/speedtest.zip
+            dist/linux-amd64/speedtest.zip
+            dist/windows-amd64/speedtest.zip
