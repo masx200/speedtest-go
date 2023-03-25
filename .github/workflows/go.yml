@@ -42,3 +42,5 @@ jobs:
       
     - name: download source zip
       run: wget --output-document=./temp/speedtest-go-main.zip https://github.com/masx200/speedtest-go/archive/refs/heads/main.zip
+    - name: deno bundle zip buiild
+      run: deno run -A ./build.ts
