@@ -52,7 +52,7 @@ jobs:
           tag_name: Continuous-integration
           token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
           files: |
-            dist/linux-mipsle/speedtest.zip
-            dist/linux-arm64/speedtest.zip
-            dist/linux-amd64/speedtest.zip
-            dist/windows-amd64/speedtest.zip
+            dist/linux-mipsle-speedtest.zip
+            dist/linux-arm64-speedtest.zip
+            dist/linux-amd64-speedtest.zip
+            dist/windows-amd64-speedtest.zip
