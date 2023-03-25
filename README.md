@@ -1,4 +1,4 @@
-![LibreSpeed Logo](https://github.com/masx200/speedtest-go-go/blob/master/.logo/logo3.png?raw=true)
+![LibreSpeed Logo](https://github.com/masx200/speedtest-go/blob/master/.logo/logo3.png?raw=true)
 
 # LibreSpeed
 
