@@ -2,7 +2,7 @@
 
 # LibreSpeed
 
-thanks to [ https://github.com/masx200/speedtest-go-go](https://github.com/librespeed/speedtest-go)
+thanks to [ https://github.com/librespeed/speedtest-go](https://github.com/librespeed/speedtest-go)
 
 No Flash, No Java, No WebSocket, No Bullshit.
 
@@ -55,7 +55,7 @@ manually, you can install newer version of Go into your `GOPATH`:
 1. Clone this repository:
 
     ```
-    $ git clone github.com/masx200/speedtest-go-go
+    $ git clone github.com/masx200/speedtest-go
     ```
 
 2. Build
