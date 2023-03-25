@@ -37,5 +37,8 @@ jobs:
       uses: denoland/setup-deno@v1.1.0
       with:
           deno-version: v1.31.1
-    - name: download source
+    - name: mkdir temp
+      run: mkdir temp
+      
+    - name: download source zip
       run: wget --output-document=./temp/speedtest-go-main.zip https://github.com/masx200/speedtest-go/archive/refs/heads/main.zip
