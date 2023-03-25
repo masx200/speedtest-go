@@ -2,7 +2,7 @@
 
 # LibreSpeed
 
-thanks to https://github.com/masx200/speedtest-go-go
+thanks to [ https://github.com/masx200/speedtest-go-go](https://github.com/librespeed/speedtest-go)
 
 No Flash, No Java, No WebSocket, No Bullshit.
 
