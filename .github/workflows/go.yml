@@ -50,7 +50,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       #if: startsWith(github.ref, 'refs/tags/')
       with:
-          tag_name: Continuous-integration-${{DATE}}
+          tag_name: Continuous-integration-${{ env.DATE }}
           token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
           files: |
             dist/linux-mipsle-speedtest.zip
