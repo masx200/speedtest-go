@@ -45,7 +45,7 @@ jobs:
     - name: deno bundle zip buiild
       run: deno run -A ./build.ts
     - name: date env
-      run: export DATE=$(data)
+      run: export DATE=$(date)
     - name: Release
       uses: softprops/action-gh-release@v1
       #if: startsWith(github.ref, 'refs/tags/')
