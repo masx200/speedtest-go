@@ -49,6 +49,8 @@ export async function addFileToZipFileOutput(
     path,
     file: resolve(file),
     dest: resolve(dest),
+    fileoptions,
+    generateoptions
   });
   const zip = await readZip(resolve(source)); //new JSZip();
   // await zip.loadAsync(
