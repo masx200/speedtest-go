@@ -4,55 +4,55 @@
 name: Go
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    push:
+        branches: ["main"]
+    pull_request:
+        branches: ["main"]
 
 jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
+            - name: Set up Go
+              uses: actions/setup-go@v3
+              with:
+                  go-version: 1.20.1
 
-    - name: Set up Go
-      uses: actions/setup-go@v3
-      with:
-        go-version: 1.20.1
+            - name: Build linux amd64
+              run: sh ./build.sh
 
-    - name: Build linux amd64
-      run: GOOS=linux GOARCH=amd64 CGO_ENABLED=0  go build -v -ldflags="-w -s" -o ./dist/linux-amd64/speedtest main.go 
+            # - name: Build windows amd64
+            #   run:  GOOS=windows GOARCH=amd64 CGO_ENABLED=0  go build -v -ldflags="-w -s" -o ./dist/windows-amd64/speedtest.exe main.go
 
-    - name: Build windows amd64
-      run:  GOOS=windows GOARCH=amd64 CGO_ENABLED=0  go build -v -ldflags="-w -s" -o ./dist/windows-amd64/speedtest.exe main.go 
-      
-    - name: Build linux mipsle softfloat
-      run: CC=mips-linux-gcc GOOS=linux GOARCH=mipsle CGO_ENABLED=0 GOMIPS=softfloat go build -v -ldflags="-w -s" -o ./dist/linux-mipsle/speedtest main.go  
+            # - name: Build linux mipsle softfloat
+            #   run: CC=mips-linux-gcc GOOS=linux GOARCH=mipsle CGO_ENABLED=0 GOMIPS=softfloat go build -v -ldflags="-w -s" -o ./dist/linux-mipsle/speedtest main.go
 
-    - name: Build linux arm64 
-      run: GOOS=linux GOARCH=arm64 CGO_ENABLED=0  go build -v -ldflags="-w -s" -o ./dist/linux-arm64/speedtest main.go  
-    - name: Setup Deno
-        # uses: denoland/setup-deno@v1
-      uses: denoland/setup-deno@v1.1.0
-      with:
-          deno-version: v1.31.1
-    - name: mkdir temp
-      run: mkdir temp
-      
-    - name: download source zip
-      run: wget --output-document=./temp/speedtest-go-main.zip https://github.com/masx200/speedtest-go/archive/refs/heads/main.zip
-    - name: deno bundle zip buiild
-      run: deno run -A ./build.ts
+            # - name: Build linux arm64
+            #   run: GOOS=linux GOARCH=arm64 CGO_ENABLED=0  go build -v -ldflags="-w -s" -o ./dist/linux-arm64/speedtest main.go
+            - name:
+                  Setup Deno
+                  # uses: denoland/setup-deno@v1
+              uses: denoland/setup-deno@v1.1.0
+              with:
+                  deno-version: v1.31.1
+            # - name: mkdir temp
+            #   run: mkdir temp
 
-    - name: Release
-      uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'refs/heads/main')
-      with:
-          tag_name: Continuous-integration-${{ github.sha }}
-          #token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
-          files: |
-            dist/linux-mipsle-speedtest.zip
-            dist/linux-arm64-speedtest.zip
-            dist/linux-amd64-speedtest.zip
-            dist/windows-amd64-speedtest.zip
+            # - name: download source zip
+            #   run: wget --output-document=./temp/speedtest-go-main.zip https://github.com/masx200/speedtest-go/archive/refs/heads/main.zip
+            # - name: deno bundle zip buiild
+            #   run: deno run -A ./build.ts
+
+            - name: Release
+              uses: softprops/action-gh-release@v1
+              if: startsWith(github.ref, 'refs/heads/main')
+              with:
+                  tag_name: Continuous-integration-${{ github.sha }}
+                  #token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+                  files: |
+                      dist/linux-mipsle-speedtest.zip
+                      dist/linux-arm64-speedtest.zip
+                      dist/linux-amd64-speedtest.zip
+                      dist/windows-amd64-speedtest.zip

@@ -9,7 +9,7 @@ Summary:	LibreSpeed go-backend server
 
 Group:		Applications/System
 License:	LGPL
-URL:		https://github.com/masx200/speedtest-go-go
+URL:		https://github.com/masx200/speedtest-go
 Source0:	%{name}.tar.gz
 Source1:	%{name}.mainconfig
 Source2:	%{name}.service
@@ -24,7 +24,7 @@ BuildRequires:	golang >= 1.13
 Very lightweight speed test implemented in Javascript, using XMLHttpRequest and Web Workers.
 
 %prep
-curl -sL 'https://github.com/masx200/speedtest-go-go/archive/refs/tags/v%{version}.tar.gz' -o %{_sourcedir}/%{name}.tar.gz
+curl -sL 'https://github.com/masx200/speedtest-go/archive/refs/tags/v%{version}.tar.gz' -o %{_sourcedir}/%{name}.tar.gz
 if [[ -d %{_builddir}/%{name} ]];then
 	chmod 777 -R %{_builddir}/%{name}
 	rm -rf %{_builddir}/%{name}
