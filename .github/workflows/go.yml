@@ -44,6 +44,4 @@ jobs:
                   #token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
                   files: |
                       dist/*.zip
-                      dist/linux-arm64-speedtest.zip
-                      dist/linux-amd64-speedtest.zip
-                      dist/windows-amd64-speedtest.zip
+
