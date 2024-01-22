@@ -14,7 +14,7 @@ require (
 	github.com/lib/pq v1.10.4
 	github.com/oklog/ulid/v2 v2.0.2
 	github.com/pires/go-proxyproto v0.6.1
-	github.com/sirupsen/logrus v1.8.1
+	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/viper v1.18.2
 	github.com/umahmood/haversine v0.0.0-20151105152445-808ab04add26
 	go.etcd.io/bbolt v1.3.6
