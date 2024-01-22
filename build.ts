@@ -38,7 +38,7 @@ if (import.meta.main) {
       source,
       "speedtest-go-main/speedtest",
       "./dist/linux-mipsle-softfloat/speedtest",
-      "./dist/linux-mipsle-speedtest.zip",
+      "./dist/linux-mipsle-softfloat-speedtest.zip",
       fileoptions,
       generateoptions
     ),
