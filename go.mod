@@ -3,7 +3,7 @@ module github.com/masx200/speedtest-go
 go 1.16
 
 require (
-	github.com/breml/rootcerts v0.2.14
+	github.com/breml/rootcerts v0.2.15
 	github.com/go-chi/chi/v5 v5.0.11
 	github.com/go-chi/cors v1.2.0
 	github.com/go-chi/render v1.0.3
