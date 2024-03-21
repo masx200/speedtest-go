@@ -43,6 +43,16 @@ Firefox, latest Safari. Works with mobile versions too.
 - BoltDB, PostgreSQL or MySQL database to store test results (optional)
 - A fast! Internet connection
 
+## 开启http3
+
+```toml
+enable_tls=true
+enable_http2=true
+tls_cert_file="cert.pem"
+tls_key_file="privkey.pem"
+enable_http3=true
+```
+
 ## Installation
 
 You need Go 1.16+ to compile the binary. If you have an older version of Go and

@@ -4,6 +4,7 @@ import (
 	"crypto/tls"
 	"embed"
 	"encoding/json"
+	"fmt"
 	"io"
 	"io/fs"
 	"io/ioutil"
@@ -18,11 +19,11 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/cors"
 	"github.com/go-chi/render"
-	"github.com/pires/go-proxyproto"
-	log "github.com/sirupsen/logrus"
-
 	"github.com/masx200/speedtest-go/config"
 	"github.com/masx200/speedtest-go/results"
+	"github.com/pires/go-proxyproto"
+	"github.com/quic-go/quic-go/http3"
+	log "github.com/sirupsen/logrus"
 )
 
 const (
@@ -40,6 +41,45 @@ var (
 
 func ListenAndServe(conf *config.Config) error {
 	r := chi.NewRouter()
+	var httpsPort = conf.Port
+	if conf.EnableHTTP3 && conf.EnableTLS {
+		r.Use(func(h http.Handler) http.Handler {
+			fn := func(writer http.ResponseWriter, r *http.Request) {
+				writer.Header().Add("Alt-Svc",
+					"h3=\":"+fmt.Sprint(httpsPort)+"\";ma=86400,h3-29=\":"+fmt.Sprint(httpsPort)+"\";ma=86400,h3-27=\":"+fmt.Sprint(httpsPort)+"\";ma=86400",
+				)
+				// Delete any ETag headers that may have been set
+				// for _, v := range etagHeaders {
+				// 	if r.Header.Get(v) != "" {
+				// 		r.Header.Del(v)
+				// 	}
+				// }
+
+				// // Set our NoCache headers
+				// for k, v := range noCacheHeaders {
+				// 	w.Header().Set(k, v)
+				// }
+
+				h.ServeHTTP(writer, r)
+			}
+			// return fn
+			return http.HandlerFunc(fn)
+			// c.Writer.Header().Add("Alt-Svc",
+			// 	"h3=\":"+fmt.Sprint(httpsPort)+"\";ma=86400,h3-29=\":"+fmt.Sprint(httpsPort)+"\";ma=86400,h3-27=\":"+fmt.Sprint(httpsPort)+"\";ma=86400",
+			// )
+			// c.Next()
+		},
+			func(h http.Handler) http.Handler {
+				fn := func(writer http.ResponseWriter, r *http.Request) {
+					/* ctx.W */ writer.Header().Add("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
+					// ctx.Next()
+					h.ServeHTTP(writer, r)
+				}
+				return http.HandlerFunc(fn)
+			})
+
+	}
+
 	r.Use(middleware.RealIP)
 	r.Use(middleware.GetHead)
 
@@ -103,6 +143,10 @@ func ListenAndServe(conf *config.Config) error {
 	// TLS and HTTP/2.
 	if conf.EnableTLS {
 		log.Info("Use TLS connection.")
+
+		if conf.EnableHTTP3 {
+			return http3.ListenAndServe(addr, conf.TLSCertFile, conf.TLSKeyFile, r)
+		}
 		if !(conf.EnableHTTP2) {
 			srv := &http.Server{
 				Addr:         addr,

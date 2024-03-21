@@ -5,9 +5,9 @@ https://github.com/masx200/speedtest-go
 
 custom rpmmacro vars:
 
--   hk_version - define version
--   hk_build - define build
--   godir - change default GOPATH
+- hk_version - define version
+- hk_build - define build
+- godir - change default GOPATH
 
 example:
 

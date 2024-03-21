@@ -1,38 +1,40 @@
 # bind address, use empty string to bind to all interfaces
-bind_address=""
+bind_address = ""
 # backend listen port
-listen_port=8989
+listen_port = 8989
 # proxy protocol port, use 0 to disable
-proxyprotocol_port=0
+proxyprotocol_port = 0
 # Server location
-server_lat=1
-server_lng=1
+server_lat = 1
+server_lng = 1
 # ipinfo.io API key, if applicable
-ipinfo_api_key=""
+ipinfo_api_key = ""
 
 # assets directory path, defaults to `assets` in the same directory
-assets_path="assets"
+assets_path = "assets"
 
 # password for logging into statistics page
-statistics_password="PASSWORD"
+statistics_password = "PASSWORD"
 # redact IP addresses
-redact_ip_addresses=false
+redact_ip_addresses = false
 
 # database type for statistics data, currently supports: none, memory, bolt, mysql, postgresql
 # if none is specified, no telemetry/stats will be recorded, and no result PNG will be generated
-database_type="none"
-database_hostname=""
-database_name=""
-database_username=""
-database_password=""
+database_type = "none"
+database_hostname = ""
+database_name = ""
+database_username = ""
+database_password = ""
 
 # if you use `bolt` as database, set database_file to database file location
-database_file="speedtest.db"
+database_file = "speedtest.db"
 
 # TLS and HTTP/2 settings. TLS is required for HTTP/2
-enable_tls=false
-enable_http2=false
+enable_tls = false
+enable_http2 = false
 
 # if you use HTTP/2 or TLS, you need to prepare certificates and private keys
 # tls_cert_file="cert.pem"
 # tls_key_file="privkey.pem"
+
+enable_http3 = false

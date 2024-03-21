@@ -16,7 +16,7 @@ if (import.meta.main) {
       "./dist/windows-amd64/speedtest.exe",
       "./dist/windows-amd64-speedtest.zip",
       fileoptions,
-      generateoptions
+      generateoptions,
     ),
     addFileToZipFileOutput(
       source,
@@ -24,7 +24,7 @@ if (import.meta.main) {
       "./dist/linux-amd64/speedtest",
       "./dist/linux-amd64-speedtest.zip",
       fileoptions,
-      generateoptions
+      generateoptions,
     ),
     addFileToZipFileOutput(
       source,
@@ -32,7 +32,7 @@ if (import.meta.main) {
       "./dist/linux-arm64/speedtest",
       "./dist/linux-arm64-speedtest.zip",
       fileoptions,
-      generateoptions
+      generateoptions,
     ),
     addFileToZipFileOutput(
       source,
@@ -40,7 +40,7 @@ if (import.meta.main) {
       "./dist/linux-mipsle-softfloat/speedtest",
       "./dist/linux-mipsle-softfloat-speedtest.zip",
       fileoptions,
-      generateoptions
+      generateoptions,
     ),
   ]);
 }
@@ -50,7 +50,7 @@ export async function addFileToZipFileOutput(
   file: string,
   dest: string,
   fileoptions: JSZipFileOptions = {},
-  generateoptions: JSZipGeneratorOptions<"uint8array"> = {}
+  generateoptions: JSZipGeneratorOptions<"uint8array"> = {},
 ) {
   generateoptions = {
     compression: "DEFLATE",
@@ -72,7 +72,7 @@ export async function addFileToZipFileOutput(
 export async function writeZip(
   zip: JSZip,
   path: string,
-  options: JSZipGeneratorOptions<"uint8array"> = {}
+  options: JSZipGeneratorOptions<"uint8array"> = {},
 ) {
   const b: Uint8Array = await zip.generateAsync({
     type: "uint8array",
