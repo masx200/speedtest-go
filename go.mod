@@ -1,8 +1,7 @@
 module github.com/masx200/speedtest-go
 
 go 1.22
-
-toolchain go1.22.0
+toolchain go1.23.3
 
 require (
 	github.com/breml/rootcerts v0.2.16
@@ -12,7 +11,7 @@ require (
 	github.com/go-sql-driver/mysql v1.8.1
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0
 	github.com/gorilla/securecookie v1.1.2
-	github.com/gorilla/sessions v1.2.2
+	github.com/gorilla/sessions v1.4.0
 	github.com/lib/pq v1.10.9
 	github.com/oklog/ulid/v2 v2.1.0
 	github.com/pires/go-proxyproto v0.7.0
