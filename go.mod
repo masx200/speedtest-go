@@ -15,7 +15,7 @@ require (
 	github.com/gorilla/sessions v1.2.2
 	github.com/lib/pq v1.10.9
 	github.com/oklog/ulid/v2 v2.1.0
-	github.com/pires/go-proxyproto v0.7.0
+	github.com/pires/go-proxyproto v0.8.0
 	github.com/quic-go/quic-go v0.42.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/viper v1.19.0
