@@ -1,8 +1,7 @@
 module github.com/masx200/speedtest-go
 
 go 1.22
-
-toolchain go1.22.0
+toolchain go1.23.6
 
 require (
 	github.com/breml/rootcerts v0.2.20
@@ -20,7 +19,7 @@ require (
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/viper v1.19.0
 	github.com/umahmood/haversine v0.0.0-20151105152445-808ab04add26
-	go.etcd.io/bbolt v1.3.11
+	go.etcd.io/bbolt v1.4.0
 	golang.org/x/image v0.23.0
 )
 
@@ -42,7 +41,7 @@ require (
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spf13/afero v1.11.0 // indirect
 	github.com/spf13/cast v1.6.0 // indirect
-	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/spf13/pflag v1.0.6 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/mock v0.4.0 // indirect
