@@ -6,7 +6,7 @@ toolchain go1.22.0
 
 require (
 	github.com/breml/rootcerts v0.2.20
-	github.com/go-chi/chi/v5 v5.2.0
+	github.com/go-chi/chi/v5 v5.2.1
 	github.com/go-chi/cors v1.2.1
 	github.com/go-chi/render v1.0.3
 	github.com/go-sql-driver/mysql v1.8.1
