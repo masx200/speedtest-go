@@ -1,8 +1,7 @@
 module github.com/masx200/speedtest-go
 
 go 1.22
-
-toolchain go1.22.0
+toolchain go1.23.7
 
 require (
 	github.com/breml/rootcerts v0.2.20
@@ -21,7 +20,7 @@ require (
 	github.com/spf13/viper v1.19.0
 	github.com/umahmood/haversine v0.0.0-20151105152445-808ab04add26
 	go.etcd.io/bbolt v1.3.11
-	golang.org/x/image v0.23.0
+	golang.org/x/image v0.25.0
 )
 
 require (
@@ -52,7 +51,7 @@ require (
 	golang.org/x/mod v0.17.0 // indirect
 	golang.org/x/net v0.34.0 // indirect
 	golang.org/x/sys v0.30.0 // indirect
-	golang.org/x/text v0.22.0 // indirect
+	golang.org/x/text v0.23.0 // indirect
 	golang.org/x/tools v0.21.1-0.20240508182429-e35e4ccd0d2d // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
